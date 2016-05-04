@@ -11,7 +11,8 @@ public class Transaction {
     private Timestamp date;
     private double sum;
 
-    public Transaction(int cardId, Timestamp date, double sum) {
+    public Transaction(int id, Timestamp date, double sum,int cardId) {
+        this.id = id;
         this.cardId = cardId;
         this.date = date;
         this.sum = sum;
@@ -20,7 +21,6 @@ public class Transaction {
     public int getId() {
         return id;
     }
-
 
     public int getCardId() {
         return cardId;

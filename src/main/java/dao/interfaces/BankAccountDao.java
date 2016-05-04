@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface BankAccountDao {
     public List<BankAccount> getAllBankAccounts();
-    public BankAccount getBankAccount(int id);
-    public void blockBankAccount(int id);
-    public boolean addMoney(double sum);
+    public BankAccount getBankAccountById(int id);
+    public boolean blockBankAccountById(int id);
+    public boolean addMoney(int id, double sum);
 }

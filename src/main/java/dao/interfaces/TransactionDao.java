@@ -2,6 +2,7 @@ package dao.interfaces;
 
 import dao.entities.Transaction;
 
+import java.security.Timestamp;
 import java.util.List;
 
 /**
@@ -9,6 +10,6 @@ import java.util.List;
  */
 public interface TransactionDao {
     public List<Transaction> getAllTransactions();
-    public Transaction getTransaction(int id);
-    public boolean makeTransaction(double sum);
+    public Transaction getTransactionById(int id);
+    public boolean makeTransaction(java.sql.Timestamp time, double sum, int card_id);
 }

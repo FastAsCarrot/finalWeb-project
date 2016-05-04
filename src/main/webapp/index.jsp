@@ -11,11 +11,6 @@
     <title>Payments system, biach !</title>
   </head>
   <body>
-  As long as there is nothing but this text you might wanna know what this all about.
-  <br>
-  <details>
-    <summary>Кхе-кхе</summary>
-    <b>Jeez, you are so annoying ^_^</b>
-  </details>
+
   </body>
 </html>

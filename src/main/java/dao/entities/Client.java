@@ -5,17 +5,18 @@ package dao.entities;
  */
 public class Client {
    private int id;
-   private int roleId;
    private String name;
    private String login;
    private String password;
+   private int roleId;
 
-    public Client(String name, String login, String password) {
+    public Client(int id, String name, String login, String password, int roleId) {
+        this.id = id;
         this.name = name;
         this.login = login;
         this.password = password;
+        this.roleId = roleId;
     }
-
 
     public int getId() {
         return id;

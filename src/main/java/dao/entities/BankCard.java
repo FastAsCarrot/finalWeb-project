@@ -15,7 +15,8 @@ public class BankCard {
     private Timestamp expires;
     private String pin;
 
-    public BankCard(int id, int bankAccountId, int ownerId, String number, String cvv, Timestamp expires, String pin) {
+    public BankCard(int id,String number, String cvv,Timestamp expires,int bankAccountId, String pin, int ownerId) {
+        this.id = id;
         this.bankAccountId = bankAccountId;
         this.ownerId = ownerId;
         this.number = number;

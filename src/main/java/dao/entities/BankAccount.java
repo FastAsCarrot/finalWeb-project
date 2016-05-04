@@ -8,8 +8,10 @@ public class BankAccount {
     private double amount;
     private boolean isBlocked;
 
-    public BankAccount(double amount) {
+    public BankAccount(int id, double amount, boolean isBlocked) {
+        this.id = id;
         this.amount = amount;
+        this.isBlocked = isBlocked;
     }
 
     public int getId() {

@@ -7,7 +7,8 @@ public class Role {
     private int id;
     private String name;
 
-    public Role(String name) {
+    public Role(int id, String name) {
+        this.id = id;
         this.name = name;
     }
 
@@ -16,7 +17,7 @@ public class Role {
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id = id;;
     }
 
     public String getName() {

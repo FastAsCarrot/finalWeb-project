@@ -10,5 +10,6 @@ import java.util.List;
 public interface ClientDao {
     public List<Client> getAllClients();
     public Client getClientById(int id);
-    public void updateClient(Client client);
+    public boolean addClient(String name, String login, String password);
+    public boolean updateClient(Client client);
 }
