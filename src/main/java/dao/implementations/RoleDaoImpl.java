@@ -19,8 +19,8 @@ public class RoleDaoImpl implements RoleDao {
 
     ConnectionPool connectionPool;
 
-    public RoleDaoImpl(ConnectionPool connectionPool) {
-        this.connectionPool = connectionPool;
+    public RoleDaoImpl() {
+
     }
 
     @Override

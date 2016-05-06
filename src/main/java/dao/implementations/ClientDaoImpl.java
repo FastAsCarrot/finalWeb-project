@@ -13,10 +13,8 @@ import java.util.List;
  * Created by Filipp Pisarev.
  */
 public class ClientDaoImpl implements ClientDao{
-    private ConnectionPool connectionPool;
 
-    public ClientDaoImpl(ConnectionPool connectionPool) {
-        this.connectionPool = connectionPool;
+    public ClientDaoImpl() {
     }
 
     @Override
@@ -77,8 +75,8 @@ public class ClientDaoImpl implements ClientDao{
 
     @Override
     public boolean addClient(String name, String login, String password) {
-        String sqlQuery = "INSERT INTO card_user(user_name, user_login, card_user_password) " +
-                "VALUES (?), (?), (?)";
+        String sqlQuery = "INSERT INTO card_user (user_name, user_login, card_user_password) " +
+                "VALUES (?, ?, ?)";
 
         try(Connection connection = ConnectionPool.getConnection();
             PreparedStatement ps = connection.prepareStatement(sqlQuery)) {
@@ -94,6 +92,7 @@ public class ClientDaoImpl implements ClientDao{
             return false;
         }
     }
+
 
     @Override
     public boolean updateClient(Client client) {
@@ -113,6 +112,34 @@ public class ClientDaoImpl implements ClientDao{
 
             return false;
         }
+    }
+
+    //TODO: write this method !!
+    @Override
+    public boolean loginCheck(String name, String password) {
+        return true;
+    }
+
+    @Override
+    public boolean registrationCheck(String login) {
+        String sqlQuery = "SELECT user_login FROM card_user WHERE user_login ='" + login +"'";
+
+        try(final Connection connection = ConnectionPool.getConnection();
+            final Statement statement = connection.createStatement();
+            final ResultSet rs = statement.executeQuery(sqlQuery)) {
+
+            if (rs.next()) {
+                return false;
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+            return true;
+        }
+
+        return true;
     }
 
 }

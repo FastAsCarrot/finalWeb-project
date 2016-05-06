@@ -11,11 +11,9 @@
     <title>Payments system, biach !</title>
   </head>
   <body>
-  <form action="/RegistrationServlet" method="post">
-    Name:<input type="text" name="name"><br>
-    Login:<input type = "text" name = "login"><br>
-    Password:<input type="password" name="password"><br>
-    <input type="submit" value="login">
-  </form>
+    <h1>Welcome to THE BANK</h1>
+    <a href = "Registraion.jsp">Registration</a><br>
+    <a href = "Login.jsp">LogIn</a><br>
+    <a href = "Profile.jsp">Profile</a>
   </body>
 </html>

@@ -18,8 +18,8 @@ import java.util.List;
 public class BankCardDaoImpl implements BankCardDao {
     private ConnectionPool connectionPool;
 
-    public BankCardDaoImpl(ConnectionPool connectionPool) {
-        this.connectionPool = connectionPool;
+    public BankCardDaoImpl() {
+
     }
 
     @Override

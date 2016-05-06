@@ -15,8 +15,8 @@ import java.util.List;
 public class TransactionDaoImpl implements TransactionDao {
     ConnectionPool connectionPool;
 
-    public TransactionDaoImpl(ConnectionPool connectionPool) {
-        this.connectionPool = connectionPool;
+    public TransactionDaoImpl() {
+
     }
 
     @Override

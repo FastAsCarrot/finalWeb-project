@@ -1,5 +1,6 @@
 package controllers;
 
+import connectionPool.ConnectionPool;
 import dao.implementations.ClientDaoImpl;
 
 import javax.servlet.ServletException;
@@ -17,14 +18,20 @@ import java.io.PrintWriter;
 public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+        try(PrintWriter out = response.getWriter()) {
 
-        String name = request.getParameter("name");
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
+            String name = request.getParameter("name");
+            String login = request.getParameter("login");
+            String password = request.getParameter("password");
 
-        ClientDaoImpl client = new ClientDaoImpl();
-        client.addClient(name, login, password);
+            ClientDaoImpl clientDao = new ClientDaoImpl();
+            if (clientDao.registrationCheck(login)){
+                clientDao.addClient(name, login, password);
+            } else {
+                out.print("Login '" + login + "' is already in use !!!");
+            }
+
+        }
 
     }
 

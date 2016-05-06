@@ -12,16 +12,16 @@ import org.apache.tomcat.jdbc.pool.PoolProperties;
 public class ConnectionPool {
 
     private static ConnectionPool instance = new ConnectionPool();
-    public static final String DRIVER = "org.postgresql.Driver";
-    public static final String URL = "jdbc:postgresql://localhost:5432/Payments";
-    public static final String USER = "Admin";
-    public static final String PASSWORD = "gi2Raffew";
-    public static final int POOLSIZE = 5;
+    private static final String DRIVER = "org.postgresql.Driver";
+    private static final String URL = "jdbc:postgresql://localhost:5432/Payments";
+    private static final String USER = "Admin";
+    private static final String PASSWORD = "gi2Raffew";
+    private static final int POOLSIZE = 5;
 
     private ConnectionPool() {
     }
 
-    private Connection createConnection() {
+    private  Connection createConnection() {
         Connection connection = null;
         try {
             PoolProperties p = new PoolProperties();

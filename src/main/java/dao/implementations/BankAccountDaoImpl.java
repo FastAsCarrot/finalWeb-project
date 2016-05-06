@@ -15,8 +15,8 @@ import java.util.List;
 public class BankAccountDaoImpl implements BankAccountDao {
     private ConnectionPool connectionPool;
 
-    public BankAccountDaoImpl(ConnectionPool connectionPool) {
-        this.connectionPool = connectionPool;
+    public BankAccountDaoImpl() {
+
     }
 
     @Override
