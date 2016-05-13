@@ -4,10 +4,7 @@ import connectionPool.ConnectionPool;
 import dao.entities.BankCard;
 import dao.interfaces.BankCardDao;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -83,6 +80,37 @@ public class BankCardDaoImpl implements BankCardDao {
         }
 
         return null;
+    }
+
+    @Override
+    public int addBankCard(BankCard bankCard) {
+        String sqlQuery = "INSERT INTO card(card_number, cvv, expires, bank_account_id, pin, owner_id)" +
+                "VALUES (?, ?, ?, ?, ?, ?) RETURNING card_id";
+
+        try (Connection connection = ConnectionPool.getConnection();
+            PreparedStatement ps = connection.prepareStatement(sqlQuery)) {
+            ps.setString(1, bankCard.getNumber());
+            ps.setString(2, bankCard.getCvv());
+            ps.setDate(3, bankCard.getExpires());
+            ps.setInt(4, bankCard.getBankAccountId());
+            ps.setString(5, bankCard.getPin());
+            ps.setInt(6, bankCard.getOwnerId());
+            ps.execute();
+
+            ResultSet rs = ps.getResultSet();
+
+            if (rs.next()) {
+                return rs.getInt("card_id");
+            } else {
+                return -1;
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+            return -1;
+        }
     }
 
 }

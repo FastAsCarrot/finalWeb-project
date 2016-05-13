@@ -12,4 +12,5 @@ public interface BankAccountDao {
     BankAccount getBankAccountById(int id);
     boolean blockBankAccountById(int id);
     boolean addMoney(int id, double sum);
+    int openBankAccount();
 }

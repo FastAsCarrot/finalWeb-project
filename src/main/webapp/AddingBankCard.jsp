@@ -11,7 +11,7 @@
     <title>BankCardRForm</title>
 </head>
 <body>
-<form action = "/BankCard" method = "get">
+<form action = "/AddBankCardServlet" method = "post">
     number: <input type = "text" name = "number"><br>
     cvv: <input type = "text" name = "cvv"><br>
     exp: <input type = "date" name = "exp"><br>

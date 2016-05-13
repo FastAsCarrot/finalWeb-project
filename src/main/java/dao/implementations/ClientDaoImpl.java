@@ -114,7 +114,6 @@ public class ClientDaoImpl implements ClientDao{
         }
     }
 
-    //TODO: write this method !!
     @Override
     public String loginValidation(String login, String password) {
         String sqlQuery = "SELECT user_name  FROM card_user WHERE user_login='" + login + "'"

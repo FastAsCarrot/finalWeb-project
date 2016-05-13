@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 
             } else {
                 out.print("Your login or password is incorrect !");
-                request.getRequestDispatcher("Login.jsp");
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
             }
         }
     }

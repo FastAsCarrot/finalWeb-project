@@ -107,4 +107,27 @@ public class BankAccountDaoImpl implements BankAccountDao {
 
     }
 
+    @Override
+    public int openBankAccount() {
+        String sqlQuery = "INSERT INTO bank_account DEFAULT VALUES RETURNING bank_account_id";
+
+        try (final Connection connection = ConnectionPool.getConnection();
+             final PreparedStatement ps = connection.prepareStatement(sqlQuery);) {
+
+            ps.execute();
+            ResultSet rs = ps.getResultSet();
+
+            if (rs.next()) {
+                return rs.getInt("bank_account_id");
+            } else {
+                return -1;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+            return -1;
+        }
+    }
+
 }

@@ -1,7 +1,9 @@
 package dao.interfaces;
 
 import dao.entities.BankCard;
+import dao.implementations.BankCardDaoImpl;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -10,4 +12,5 @@ import java.util.List;
 public interface BankCardDao {
     List<BankCard> getAllBankCards();
     BankCard getBankCardByOwnerId(int id);
+    int addBankCard(BankCard bankCard);
 }

@@ -16,10 +16,6 @@
 
 
 <h1>Profile of <jsp:getProperty property = "name" name = "client"></jsp:getProperty></h1>
-<br>
 <a href = "AddingBankCard.jsp">Add a bank card</a><br>
-<form action = "/OpenBankAccountServlet" mehtod = "post">
-    <a href = "/OpenBankAccountServlet">Open bank account</a>
-</form>
 </body>
 </html>

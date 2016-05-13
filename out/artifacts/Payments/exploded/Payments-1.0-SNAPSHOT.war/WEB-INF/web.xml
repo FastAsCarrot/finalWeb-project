@@ -39,13 +39,13 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
-
+    
     <servlet>
-        <servlet-name>OpenBankAccountServlet</servlet-name>
-        <servlet-class>controllers.OpenBankAccountServlet</servlet-class>
+        <servlet-name>AddBankCardServlet</servlet-name>
+        <servlet-class>controllers.AddBankCardServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>OpenBankAccountServlet</servlet-name>
-        <url-pattern>/OpenBankAccountServlet</url-pattern>
+        <servlet-name>AddBankCardServlet</servlet-name>
+        <url-pattern>/AddBankCardServlet</url-pattern>
     </servlet-mapping>
 </web-app>
