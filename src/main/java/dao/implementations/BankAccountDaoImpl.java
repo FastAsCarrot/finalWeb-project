@@ -29,6 +29,7 @@ public class BankAccountDaoImpl implements BankAccountDao {
              final Statement statement = connection.createStatement();
              final ResultSet rs = statement.executeQuery(sqlQuery)) {
 
+
             while (rs.next()) {
                 bankAccountList.add(new BankAccount(
                         rs.getInt("bank_account_id"),

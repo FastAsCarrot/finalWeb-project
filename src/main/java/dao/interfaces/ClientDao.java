@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface ClientDao {
     List<Client> getAllClients();
-    Client getClientById(int id);
+    Client getClientByLogin(String login);
     boolean addClient(String name, String login, String password);
-    boolean loginCheck(String login, String password);
-    boolean registrationCheck(String login);
+    String loginValidation(String login, String password);
+    boolean isLoginAlreadyExist(String login);
     boolean updateClient(Client client);
 }

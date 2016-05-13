@@ -25,10 +25,11 @@ public class RegistrationServlet extends HttpServlet {
             String password = request.getParameter("password");
 
             ClientDaoImpl clientDao = new ClientDaoImpl();
-            if (clientDao.registrationCheck(login)){
-                clientDao.addClient(name, login, password);
-            } else {
+            if (clientDao.isLoginAlreadyExist(login)){
                 out.print("Login '" + login + "' is already in use !!!");
+            } else {
+                clientDao.addClient(name, login, password);
+                out.print("Account '" + login + "' has successfully created :)");
             }
 
         }

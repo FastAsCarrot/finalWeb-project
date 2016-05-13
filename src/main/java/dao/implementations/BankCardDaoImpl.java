@@ -38,7 +38,7 @@ public class BankCardDaoImpl implements BankCardDao {
                         rs.getInt("card_id"),
                         rs.getString("card_number"),
                         rs.getString("cvv"),
-                        rs.getTimestamp("expires"),
+                        rs.getDate("expires"),
                         rs.getInt("bank_account_id"),
                         rs.getString("pin"),
                         rs.getInt("owner_id")
@@ -54,31 +54,35 @@ public class BankCardDaoImpl implements BankCardDao {
     }
 
     @Override
-    public BankCard getBankCardById(int id) {
+    public BankCard getBankCardByOwnerId(int id) {
         String sqlQuery = "SELECT card_id, card_number, cvv, expires, bank_account_id, pin, owner_id " +
-                "FROM card WHERE card_id = " + id;
+                "FROM card WHERE owner_id = " + id;
 
         try (final Connection connection = ConnectionPool.getConnection();
              final Statement statement = connection.createStatement();
              final ResultSet rs = statement.executeQuery(sqlQuery)) {
 
-            rs.next();
+            if (rs.next()) {
 
-            return new BankCard(
-                    rs.getInt("card_id"),
-                    rs.getString("card_number"),
-                    rs.getString("cvv"),
-                    rs.getTimestamp("expires"),
-                    rs.getInt("bank_account_id"),
-                    rs.getString("pin"),
-                    rs.getInt("owner_id")
-            );
+                return new BankCard(
+                        rs.getInt("card_id"),
+                        rs.getString("card_number"),
+                        rs.getString("cvv"),
+                        rs.getDate("expires"),
+                        rs.getInt("bank_account_id"),
+                        rs.getString("pin"),
+                        rs.getInt("owner_id")
+                );
+            }
+
 
         } catch (SQLException e) {
             e.printStackTrace();
 
             return null;
         }
+
+        return null;
     }
 
 }

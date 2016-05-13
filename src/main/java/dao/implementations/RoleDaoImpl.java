@@ -46,4 +46,27 @@ public class RoleDaoImpl implements RoleDao {
             return Collections.emptyList();
         }
     }
+
+    @Override
+    public Role getRoleById(int id) {
+        String sqlQuery = "SELECT role_id, role_name FROM account_role " +
+                "WHERE role_id ='" + id +  "'";
+
+        try (final Connection connection = ConnectionPool.getConnection();
+             final Statement statement = connection.createStatement();
+             final ResultSet rs = statement.executeQuery(sqlQuery)) {
+
+            if (rs.next()) {
+                return new Role(
+                        rs.getInt("role_id"),
+                        rs.getString("role_name"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+            return null;
+        }
+
+        return null;
+    }
 }

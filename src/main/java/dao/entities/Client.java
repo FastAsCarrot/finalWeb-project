@@ -10,6 +10,10 @@ public class Client {
    private String password;
    private int roleId;
 
+    public Client() {
+
+    }
+
     public Client(int id, String name, String login, String password, int roleId) {
         this.id = id;
         this.name = name;

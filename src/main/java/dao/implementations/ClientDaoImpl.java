@@ -47,9 +47,9 @@ public class ClientDaoImpl implements ClientDao{
     }
 
     @Override
-    public Client getClientById(int id) {
+    public Client getClientByLogin(String login) {
         String sqlQuery = "SELECT card_user_id, user_name, user_login, card_user_password, account_role_id " +
-        "FROM card_user WHERE card_user_id = " + id;
+        "FROM card_user WHERE user_login = '" + login + "'";
 
         try(final Connection connection = ConnectionPool.getConnection();
             final Statement statement = connection.createStatement();
@@ -116,12 +116,30 @@ public class ClientDaoImpl implements ClientDao{
 
     //TODO: write this method !!
     @Override
-    public boolean loginCheck(String name, String password) {
-        return true;
+    public String loginValidation(String login, String password) {
+        String sqlQuery = "SELECT user_name  FROM card_user WHERE user_login='" + login + "'"
+                + " AND card_user_password = '" + password + "'" ;
+
+        try(Connection connection = ConnectionPool.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(sqlQuery)) {
+
+            if(rs.next()) {
+                return rs.getString("user_name");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+            return null;
+        }
+
+
+        return null;
     }
 
     @Override
-    public boolean registrationCheck(String login) {
+    public boolean isLoginAlreadyExist(String login) {
         String sqlQuery = "SELECT user_login FROM card_user WHERE user_login ='" + login +"'";
 
         try(final Connection connection = ConnectionPool.getConnection();
@@ -129,17 +147,16 @@ public class ClientDaoImpl implements ClientDao{
             final ResultSet rs = statement.executeQuery(sqlQuery)) {
 
             if (rs.next()) {
-                return false;
+                return true;
             }
-
 
         } catch (SQLException e) {
             e.printStackTrace();
 
-            return true;
+            return false;
         }
 
-        return true;
+        return false;
     }
 
 }

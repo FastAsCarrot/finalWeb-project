@@ -1,5 +1,6 @@
 package dao.entities;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 
@@ -12,10 +13,10 @@ public class BankCard {
     private int ownerId;
     private String number;
     private String cvv;
-    private Timestamp expires;
+    private Date expires;
     private String pin;
 
-    public BankCard(int id,String number, String cvv,Timestamp expires,int bankAccountId, String pin, int ownerId) {
+    public BankCard(int id, String number, String cvv, Date expires, int bankAccountId, String pin, int ownerId) {
         this.id = id;
         this.bankAccountId = bankAccountId;
         this.ownerId = ownerId;
@@ -65,11 +66,11 @@ public class BankCard {
         this.cvv = cvv;
     }
 
-    public Timestamp getExpires() {
+    public Date getExpires() {
         return expires;
     }
 
-    public void setExpires(Timestamp expires) {
+    public void setExpires(Date expires) {
         this.expires = expires;
     }
 
