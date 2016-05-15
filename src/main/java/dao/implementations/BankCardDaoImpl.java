@@ -51,7 +51,9 @@ public class BankCardDaoImpl implements BankCardDao {
     }
 
     @Override
-    public BankCard getBankCardByOwnerId(int id) {
+    public List<BankCard> getBankCardsByOwnerId(int id) {
+        List<BankCard> bankCardList = new ArrayList<>();
+
         String sqlQuery = "SELECT card_id, card_number, cvv, expires, bank_account_id, pin, owner_id " +
                 "FROM card WHERE owner_id = " + id;
 
@@ -59,9 +61,8 @@ public class BankCardDaoImpl implements BankCardDao {
              final Statement statement = connection.createStatement();
              final ResultSet rs = statement.executeQuery(sqlQuery)) {
 
-            if (rs.next()) {
-
-                return new BankCard(
+            while(rs.next()) {
+                bankCardList.add(new BankCard(
                         rs.getInt("card_id"),
                         rs.getString("card_number"),
                         rs.getString("cvv"),
@@ -69,17 +70,15 @@ public class BankCardDaoImpl implements BankCardDao {
                         rs.getInt("bank_account_id"),
                         rs.getString("pin"),
                         rs.getInt("owner_id")
-                );
+                ));
             }
 
+            return bankCardList;
 
         } catch (SQLException e) {
             e.printStackTrace();
-
-            return null;
+            return Collections.emptyList();
         }
-
-        return null;
     }
 
     @Override

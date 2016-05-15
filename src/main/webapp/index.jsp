@@ -13,8 +13,8 @@
   <body>
     <h1>Welcome to THE BANK</h1>
     <a href = "Registraion.jsp">Registration</a><br>
-    <a href = "Login.jsp">SignIn</a><br>
+    <a href = "Login.jsp">Sign In</a><br>
     <a href = "/ProfileServlet">Profile</a><br>
-    <a href = "/LogoutServlet">SignOut</a>
+    <a href = "/LogoutServlet">Sign Out</a>
   </body>
 </html>

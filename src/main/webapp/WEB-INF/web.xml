@@ -48,4 +48,13 @@
         <servlet-name>AddBankCardServlet</servlet-name>
         <url-pattern>/AddBankCardServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProfileInformationServlet</servlet-name>
+        <servlet-class>controllers.ProfileInformationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfileInformationServlet</servlet-name>
+        <url-pattern>/ProfileInformationServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

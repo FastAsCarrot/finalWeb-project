@@ -1,7 +1,9 @@
 package controllers;
 
 import dao.entities.Client;
+import dao.entities.Role;
 import dao.implementations.ClientDaoImpl;
+import dao.implementations.RoleDaoImpl;
 import dao.interfaces.ClientDao;
 
 import javax.servlet.ServletException;
@@ -37,9 +39,16 @@ public class LoginServlet extends HttpServlet {
 
             if (name != null ) {
                 HttpSession session = request.getSession(false);
+
                 Client client;
                 client = clientDao.getClientByLogin(login);
+
+                Role role;
+                RoleDaoImpl roleDao = new RoleDaoImpl();
+
+                role = roleDao.getRoleById(client.getRoleId());
                 session.setAttribute("client", client);
+                session.setAttribute("role", role);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
 
             } else {

@@ -11,6 +11,6 @@ import java.util.List;
  */
 public interface BankCardDao {
     List<BankCard> getAllBankCards();
-    BankCard getBankCardByOwnerId(int id);
+    List<BankCard> getBankCardsByOwnerId(int id);
     int addBankCard(BankCard bankCard);
 }
