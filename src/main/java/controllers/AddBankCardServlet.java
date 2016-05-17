@@ -40,7 +40,7 @@ public class AddBankCardServlet extends HttpServlet {
                 }
             }
 
-            String number = request.getParameter("number");
+            String number = request.getParameter("number").replaceAll(" ","");
             String cvv = request.getParameter("cvv");
             String exp = request.getParameter("exp");
             int bankAccountId = (int)session.getAttribute("bankAccountId");
@@ -50,6 +50,7 @@ public class AddBankCardServlet extends HttpServlet {
             BankCardDaoImpl bankCardDao = new BankCardDaoImpl();
 
             int pin = (int)(Math.random() * 9999)+1000;
+            System.out.println(pin);
             String stringPin = String.valueOf(pin);
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

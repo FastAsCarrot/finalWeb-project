@@ -76,7 +76,7 @@ public class TransactionDaoImpl implements TransactionDao {
     @Override
     public boolean makeTransaction(Timestamp time, double sum, int card_id) {
         String sqlQuery = "INSERT INTO card_transaction(transaction_date, transaction_sum, card_id) " +
-                "VALUES (?), (?), (?)";
+                "VALUES (?, ?, ?)";
 
         try(Connection connection = ConnectionPool.getConnection();
             PreparedStatement ps = connection.prepareStatement(sqlQuery)) {

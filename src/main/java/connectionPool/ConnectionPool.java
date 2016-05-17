@@ -16,7 +16,7 @@ public class ConnectionPool {
     private static final String URL = "jdbc:postgresql://localhost:5432/Payments";
     private static final String USER = "Admin";
     private static final String PASSWORD = "gi2Raffew";
-    private static final int POOLSIZE = 5;
+    private static final int POOLSIZE = 20;
 
     private ConnectionPool() {
     }
@@ -30,6 +30,9 @@ public class ConnectionPool {
             p.setUsername(USER);
             p.setPassword(PASSWORD);
             p.setMaxActive(POOLSIZE);
+            p.setInitialSize(0);
+            p.setMaxIdle(8);
+            p.setMinIdle(0);
             DataSource dataSource = new DataSource();
             dataSource.setPoolProperties(p);
 

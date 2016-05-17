@@ -96,20 +96,41 @@ public class BankCardDaoImpl implements BankCardDao {
             ps.setInt(6, bankCard.getOwnerId());
             ps.execute();
 
-            ResultSet rs = ps.getResultSet();
-
-            if (rs.next()) {
-                return rs.getInt("card_id");
-            } else {
-                return -1;
+            try(ResultSet rs = ps.getResultSet()) {
+                if (rs.next()) {
+                    return rs.getInt("card_id");
+                } else {
+                    return -1;
+                }
             }
-
 
         } catch (SQLException e) {
             e.printStackTrace();
 
             return -1;
         }
+    }
+
+    @Override
+    public int getBankCardIdByAccountId(int id) {
+        String sqlQuery = "SELECT card_id" +
+                " FROM card WHERE bank_account_id = "+ id;
+
+        try(final Connection connection = ConnectionPool.getConnection();
+            final Statement statement = connection.createStatement();
+            final ResultSet rs = statement.executeQuery(sqlQuery)) {
+
+            if (rs.next()) {
+                return rs.getInt("card_id");
+            } else {
+                return -1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+            return -1;
+        }
+
     }
 
 }

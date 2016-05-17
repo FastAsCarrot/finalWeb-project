@@ -88,13 +88,13 @@ public class BankAccountDaoImpl implements BankAccountDao {
     }
 
     @Override
-    public boolean addMoney(int id, double sum) {
-        String sqlQuery = "UPDATE bank_account SET amount = (?) WHERE bank_account_id = (?)";
+    public boolean operationsWithMoney(int id, double sum) {
+        String sqlQuery = "UPDATE bank_account SET amount = amount +(?) WHERE bank_account_id = (?)";
 
         try (final Connection connection = ConnectionPool.getConnection();
              final PreparedStatement statement = connection.prepareStatement(sqlQuery)) {
-            statement.setInt(1, id);
-            statement.setDouble(2, sum);
+            statement.setDouble(1, sum);
+            statement.setInt(2, id);
             statement.executeUpdate();
 
             return true;
@@ -115,12 +115,12 @@ public class BankAccountDaoImpl implements BankAccountDao {
              final PreparedStatement ps = connection.prepareStatement(sqlQuery);) {
 
             ps.execute();
-            ResultSet rs = ps.getResultSet();
-
-            if (rs.next()) {
-                return rs.getInt("bank_account_id");
-            } else {
-                return -1;
+            try(ResultSet rs = ps.getResultSet()) {
+                if (rs.next()) {
+                    return rs.getInt("bank_account_id");
+                } else {
+                    return -1;
+                }
             }
 
         } catch (SQLException e) {

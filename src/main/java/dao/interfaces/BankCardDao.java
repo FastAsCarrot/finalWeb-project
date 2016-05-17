@@ -13,4 +13,5 @@ public interface BankCardDao {
     List<BankCard> getAllBankCards();
     List<BankCard> getBankCardsByOwnerId(int id);
     int addBankCard(BankCard bankCard);
+    int getBankCardIdByAccountId(int id);
 }

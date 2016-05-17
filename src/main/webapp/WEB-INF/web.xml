@@ -50,11 +50,48 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ProfileInformationServlet</servlet-name>
-        <servlet-class>controllers.ProfileInformationServlet</servlet-class>
+        <servlet-name>CardInformationServlet</servlet-name>
+        <servlet-class>controllers.CardInformationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ProfileInformationServlet</servlet-name>
-        <url-pattern>/ProfileInformationServlet</url-pattern>
+        <servlet-name>CardInformationServlet</servlet-name>
+        <url-pattern>/CardInformationServlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CardOperationsServlet</servlet-name>
+        <servlet-class>controllers.CardOperationsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CardOperationsServlet</servlet-name>
+        <url-pattern>/CardOperationsServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BlockBankAccountServlet</servlet-name>
+        <servlet-class>controllers.BlockBankAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BlockBankAccountServlet</servlet-name>
+        <url-pattern>/BlockBankAccountServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddMoneyServlet</servlet-name>
+        <servlet-class>controllers.AddMoneyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddMoneyServlet</servlet-name>
+        <url-pattern>/AddMoneyServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WithdrawMoneyServlet</servlet-name>
+        <servlet-class>controllers.WithdrawMoneyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WithdrawMoneyServlet</servlet-name>
+        <url-pattern>/WithdrawMoneyServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

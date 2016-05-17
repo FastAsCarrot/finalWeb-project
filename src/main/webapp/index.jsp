@@ -11,10 +11,15 @@
     <title>Payments system, biach !</title>
   </head>
   <body>
+
+    <div align="right">
+      <a href = "/ProfileServlet">Profile</a>
+      <a href = "/LogoutServlet">Sign Out</a>
+    </div>
+
     <h1>Welcome to THE BANK</h1>
-    <a href = "Registraion.jsp">Registration</a><br>
     <a href = "Login.jsp">Sign In</a><br>
-    <a href = "/ProfileServlet">Profile</a><br>
-    <a href = "/LogoutServlet">Sign Out</a>
+    <a href = "Registraion.jsp">Registration</a><br>
+
   </body>
 </html>

@@ -26,11 +26,11 @@ public class BankAccount {
         return amount;
     }
 
-    public boolean isBlocked() {
+    public boolean getisBlocked() {
         return isBlocked;
     }
 
-    public void setBlocked(boolean blocked) {
+    public void setisBlocked(boolean blocked) {
         isBlocked = blocked;
     }
 }

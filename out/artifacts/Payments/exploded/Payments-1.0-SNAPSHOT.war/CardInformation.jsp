@@ -10,15 +10,10 @@
 
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/style/ProfileInfo.css">
+    <link rel="stylesheet" type="text/css" href="/style/CardInfo.css">
     <title>ProfileInfo</title>
 </head>
 <body>
-<h3>Profile info</h3>
-Name: <c:out value = "${sessionScope.client.name}"/><br>
-Login: <c:out value = "${sessionScope.client.login}"/><br>
-Role: <c:out value = "${sessionScope.role.name}"/><br>
-<br>
 
 <h3>Card info</h3>
 <table>
@@ -27,13 +22,17 @@ Role: <c:out value = "${sessionScope.role.name}"/><br>
         <th>number</th>
         <th>cvv</th>
         <th>expires</th>
+        <th>funds</th>
+        <th>blocked</th>
     </tr>
-    <c:forEach var="BankCard" items="${sessionScope.cards}">
+    <c:forEach var="BankCard" items="${sessionScope.cards}" varStatus ="status">
         <tr>
             <td><c:out value = "${sessionScope.client.name}"/></td>
             <td><c:out value="${BankCard.number}" /></td>
             <td><c:out value="${BankCard.cvv}" /></td>
             <td><c:out value="${BankCard.expires}" /></td>
+            <td><c:out value ="${sessionScope.bankAccounts[status.index].amount}"/></td>
+            <td><c:out value = "${sessionScope.bankAccounts[status.index].isBlocked}"/></td>
         </tr>
     </c:forEach>
 </table>

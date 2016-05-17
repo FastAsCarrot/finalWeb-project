@@ -15,9 +15,15 @@
 <body>
 
 <h1>Profile of <c:out value = "${sessionScope.client.name}"/></h1>
-<a href = "AddingBankCard.jsp">Add a bank card</a><br>
-<a href = "/ProfileInformationServlet">Profile information</a>
 
+Name: <c:out value = "${sessionScope.client.name}"/><br>
+Login: <c:out value = "${sessionScope.client.login}"/><br>
+Role: <c:out value = "${sessionScope.role.name}"/><br>
+<br>
+
+<a href = "AddingBankCard.jsp">Add a bank card</a><br>
+<a href = "/CardInformationServlet">Cards information</a><br>
+<a href = "CardOperationsServlet">Operations with card</a>
 
 </body>
 </html>
