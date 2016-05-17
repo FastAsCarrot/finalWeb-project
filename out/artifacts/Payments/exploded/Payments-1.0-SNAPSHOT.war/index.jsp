@@ -6,20 +6,24 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
   <head>
     <title>Payments system, biach !</title>
   </head>
   <body>
 
-    <div align="right">
+  <div style = "color: red">
+    <c:out value = "${message}"/>
+  </div>
+  <div align="right">
       <a href = "/ProfileServlet">Profile</a>
       <a href = "/LogoutServlet">Sign Out</a>
     </div>
 
-    <h1>Welcome to THE BANK</h1>
+    <div align = "center"><h1>Welcome to THE BANK</h1></div>
     <a href = "Login.jsp">Sign In</a><br>
-    <a href = "Registraion.jsp">Registration</a><br>
+    <a href = "Registration.jsp">Registration</a><br>
 
   </body>
 </html>

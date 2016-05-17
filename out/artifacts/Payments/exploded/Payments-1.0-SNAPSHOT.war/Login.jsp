@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: vrama
@@ -11,6 +12,11 @@
     <title>Login</title>
 </head>
 <body>
+
+<div style = "color: red">
+    <c:out value = "${message}"/>
+</div>
+
 <form action = "/LoginServlet" method = "get">
 Login:<input type="text" name="login"><br>
 Password:<input type="password" name="password"><br>

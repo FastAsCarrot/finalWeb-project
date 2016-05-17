@@ -15,7 +15,10 @@
 </head>
 <body>
 
-<c:out value = "${message}"/>
+<div style = "color: red">
+    <c:out value = "${message}"/>
+</div>
+
 <br>
 <br>
 Choose a card:

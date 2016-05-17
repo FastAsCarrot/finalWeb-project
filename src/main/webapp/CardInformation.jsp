@@ -15,6 +15,10 @@
 </head>
 <body>
 
+<div style = "color: red">
+    <c:out value = "${message}"/>
+</div>
+
 <h3>Card info</h3>
 <table>
     <tr>

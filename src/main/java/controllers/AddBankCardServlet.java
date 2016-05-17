@@ -28,29 +28,37 @@ public class AddBankCardServlet extends HttpServlet {
             response.setContentType("text/html");
             HttpSession session = request.getSession();
 
+            String number = request.getParameter("number").replaceAll(" ","");
+            String cvv = request.getParameter("cvv");
+
+            if (number.length() != 16 | cvv.length()!= 3) {
+                request.setAttribute("message", "Number of digits in field 'number' or 'cvv' is incorrect!");
+                request.getRequestDispatcher("AddingBankCard.jsp").forward(request, response);
+            }
+
+            String exp = request.getParameter("exp");
+
             BankAccountDaoImpl bankAccountDao = new BankAccountDaoImpl();
 
             try (PrintWriter out = response.getWriter()) {
                 int bankAccountId = bankAccountDao.openBankAccount();
                 if (bankAccountId!= -1) {
                     session.setAttribute("bankAccountId", bankAccountId);
+                    request.setAttribute("message", "Bank account has been successfully created! ");
                     request.getRequestDispatcher("Profile.jsp").forward(request, response);
                 } else {
-                    out.println("Attempt to create a bank account has failed");
+                    request.setAttribute("message", "Attempt to create bank account has failed !");
+                    request.getRequestDispatcher("Profile.jsp").forward(request, response);
                 }
             }
 
-            String number = request.getParameter("number").replaceAll(" ","");
-            String cvv = request.getParameter("cvv");
-            String exp = request.getParameter("exp");
             int bankAccountId = (int)session.getAttribute("bankAccountId");
             Client client = (Client)session.getAttribute("client");
             int clientId = client.getId();
 
             BankCardDaoImpl bankCardDao = new BankCardDaoImpl();
 
-            int pin = (int)(Math.random() * 9999)+1000;
-            System.out.println(pin);
+            int pin = (int)(Math.random() * 9000)+1000;
             String stringPin = String.valueOf(pin);
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -69,13 +77,15 @@ public class AddBankCardServlet extends HttpServlet {
                 session.setAttribute("cardId", bankCardId);
                 request.getRequestDispatcher("Profile.jsp").forward(request, response);
             }  else {
-                PrintWriter out = response.getWriter();
-                out.println("Failed to add a card");
-                out.close();
+
+                request.setAttribute("message", "Failed to add a cart!");
+                request.getRequestDispatcher("Profile.jsp").forward(request, response);
             }
 
         } catch (ParseException e) {
             e.printStackTrace();
+            request.setAttribute("message", "Failed to add a cart!");
+            request.getRequestDispatcher("Profile.jsp").forward(request, response);
         }
 
 

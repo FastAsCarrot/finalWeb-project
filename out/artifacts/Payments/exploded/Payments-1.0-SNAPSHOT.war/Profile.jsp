@@ -14,6 +14,11 @@
 </head>
 <body>
 
+<div style = "color: red">
+    <c:out value = "${message}"/>
+</div>
+
+
 <h1>Profile of <c:out value = "${sessionScope.client.name}"/></h1>
 
 Name: <c:out value = "${sessionScope.client.name}"/><br>

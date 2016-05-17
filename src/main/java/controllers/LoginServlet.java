@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html");
 
         String name = null;
-        String login = request.getParameter("login");
+        String login = request.getParameter("login").toLowerCase();
         String password = request.getParameter("password");
 
         ClientDaoImpl clientDao = new ClientDaoImpl();
@@ -49,10 +49,11 @@ public class LoginServlet extends HttpServlet {
                 role = roleDao.getRoleById(client.getRoleId());
                 session.setAttribute("client", client);
                 session.setAttribute("role", role);
+                request.setAttribute("message", "You've successfully signed in!");
                 request.getRequestDispatcher("index.jsp").forward(request, response);
 
             } else {
-                out.print("Your login or password is incorrect !");
+                request.setAttribute("message", "Your login or password is incorrect !");
                 request.getRequestDispatcher("Login.jsp").forward(request, response);
             }
         }

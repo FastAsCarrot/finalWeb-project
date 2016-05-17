@@ -21,15 +21,17 @@ public class RegistrationServlet extends HttpServlet {
         try(PrintWriter out = response.getWriter()) {
 
             String name = request.getParameter("name");
-            String login = request.getParameter("login");
+            String login = request.getParameter("login").toLowerCase();
             String password = request.getParameter("password");
 
             ClientDaoImpl clientDao = new ClientDaoImpl();
             if (clientDao.isLoginAlreadyExist(login)){
-                out.print("Login '" + login + "' is already in use !!!");
+                request.setAttribute("message", "Login '" + login + "' is already in use !!!");
+                request.getRequestDispatcher("Registration.jsp").forward(request, response);
             } else {
                 clientDao.addClient(name, login, password);
-                out.print("Account '" + login + "' has successfully created :)");
+                request.setAttribute("message", "Account '" + login + "' has successfully created :)");
+                request.getRequestDispatcher("Registration.jsp").forward(request, response);
             }
 
         }

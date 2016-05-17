@@ -33,9 +33,8 @@ public class ProfileServlet extends HttpServlet {
         if (client != null) {
             request.getRequestDispatcher("Profile.jsp").include(request,response);
         } else {
-            try(PrintWriter out = response.getWriter()) {
-            out.print("<h2>Sign in first !</h2>");
-            }
+            request.setAttribute("message", "Sign in first!");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
 
 
