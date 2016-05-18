@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" session = "true" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<fmt:setLocale value="${sessionScope.locale}"/>
 
 <html>
 <head>
@@ -19,23 +21,23 @@
 </div>
 
 
-<h1>Profile of <c:out value = "${sessionScope.client.name}"/></h1>
+<h1><fmt:message key = "profile.profileOf"/> <c:out value = "${sessionScope.client.name}"/></h1>
 
-Name: <c:out value = "${sessionScope.client.name}"/><br>
-Login: <c:out value = "${sessionScope.client.login}"/><br>
-Role: <c:out value = "${sessionScope.role.name}"/><br>
+<fmt:message key = "profile.name"/> <c:out value = "${sessionScope.client.name}"/><br>
+<fmt:message key = "profile.login"/> <c:out value = "${sessionScope.client.login}"/><br>
+<fmt:message key = "profile.role"/> <c:out value = "${sessionScope.role.name}"/><br>
 <br>
 
 <c:if test = "${sessionScope.role.name == 'User'}">
-    <a href = "userPages/AddingBankCard.jsp">Add a bank card</a><br>
-    <a href = "/CardInformationServlet">Cards information</a><br>
-    <a href = "/CardOperationsServlet">Operations with card</a>
+    <a href = "userPages/AddingBankCard.jsp"> <fmt:message key = "profile.addCard"/></a><br>
+    <a href = "/CardInformationServlet"> <fmt:message key = "profile.cardInfo"/></a><br>
+    <a href = "/CardOperationsServlet"> <fmt:message key = "profile.cardOperations"/></a>
 </c:if>
 
 <c:if test = "${sessionScope.role.name == 'Administrator'}">
-    <a href = "/InitializeBankAccountsServlet">Unblock account</a><br>
-    <a href = "/InitializeBankCardsServlet">View all cards</a><br>
-    <a href = "/InitializeUsersServlet">View all users</a><br>
+    <a href = "/InitializeBankAccountsServlet"> <fmt:message key = "profile.unblock"/></a><br>
+    <a href = "/InitializeBankCardsServlet"> <fmt:message key = "profile.viewCards"/></a><br>
+    <a href = "/InitializeUsersServlet"> <fmt:message key = "profile.viewUsers"/></a><br>
 </c:if>
 
 </body>

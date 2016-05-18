@@ -4,6 +4,29 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          id="WebApp_ID" version="3.0">
 
+    <context-param>
+        <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+        <param-value>i18n.WebInterface</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>EnglishLocaleServlet</servlet-name>
+        <servlet-class>controllers.EnglishLocaleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EnglishLocaleServlet</servlet-name>
+        <url-pattern>/EnglishLocaleServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RussianLocaleServlet</servlet-name>
+        <servlet-class>controllers.RussianLocaleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RussianLocaleServlet</servlet-name>
+        <url-pattern>/RussianLocaleServlet</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>RegistrationServlet</servlet-name>
         <servlet-class>controllers.RegistrationServlet</servlet-class>

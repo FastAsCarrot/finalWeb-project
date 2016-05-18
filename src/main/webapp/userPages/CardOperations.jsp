@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" session ="true" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <html>
 <head>
@@ -14,6 +15,7 @@
     <script type="text/javascript" src="../scripts/actionChoices.js"></script>
 </head>
 <body>
+<fmt:setLocale value="${sessionScope.locale}"/>
 
 <div style = "color: red">
     <c:out value = "${message}"/>
@@ -21,7 +23,7 @@
 
 <br>
 <br>
-Choose a card:
+<fmt:message key = "user.chooseCard"/>
 
 <form method = "post" name = "choices">
 <select name ="chosenCard">
@@ -32,9 +34,12 @@ Choose a card:
     <br>
     <br>
 
-    <input type = "submit" value = "Block account" onclick = "return blockAccount()"><br>
-    <input type = "submit" value = "Add money" onclick = "return addMoney()"><br>
-    <input type = "submit" value = "Withdraw money" onclick = "return withdrawMoney()"><br>
+    <fmt:message key = "user.blockAccount" var = "block"/>
+    <input type = "submit" value = "${block}" onclick = "return blockAccount()"><br
+    <fmt:message key = "user.addMoney" var = "add"/>
+    <input type = "submit" value = "${add}" onclick = "return addMoney()"><br>
+    <fmt:message key = "user.withdrawMoney" var = "withdraw"/>
+    <input type = "submit" value = "${withdraw}" onclick = "return withdrawMoney()"><br>
 </form>
 
 </body>

@@ -27,20 +27,18 @@ public class RegistrationServlet extends HttpServlet {
             if(password.length() < 4) {
                 request.setAttribute("message", "password is too short!");
                 request.getRequestDispatcher("Registration.jsp").forward(request, response);
-            }
-
-            ClientDaoImpl clientDao = new ClientDaoImpl();
-            if (clientDao.isLoginAlreadyExist(login)){
-                request.setAttribute("message", "Login '" + login + "' is already in use !!!");
-                request.getRequestDispatcher("Registration.jsp").forward(request, response);
             } else {
-                clientDao.addClient(name, login, password);
-                request.setAttribute("message", "Account '" + login + "' has successfully created :)");
-                request.getRequestDispatcher("Registration.jsp").forward(request, response);
+                ClientDaoImpl clientDao = new ClientDaoImpl();
+                if (clientDao.isLoginAlreadyExist(login)){
+                    request.setAttribute("message", "Login '" + login + "' is already in use !!!");
+                    request.getRequestDispatcher("Registration.jsp").forward(request, response);
+                } else {
+                    clientDao.addClient(name, login, password);
+                    request.setAttribute("message", "Account '" + login + "' has successfully created :)");
+                    request.getRequestDispatcher("Registration.jsp").forward(request, response);
+                }
             }
-
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

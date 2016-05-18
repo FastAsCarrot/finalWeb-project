@@ -7,23 +7,33 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
   <head>
     <title>Payments system, biach !</title>
   </head>
   <body>
 
+  <fmt:setLocale value="${sessionScope.locale}"/>
+
+  <div align="left">
+    <a href="/RussianLocaleServlet" name = "ru"><fmt:message key = "main.ru"/></a>
+    <a href="/EnglishLocaleServlet" name = "en"><fmt:message key = "main.en"/></a>
+  </div>
+
   <div style = "color: red">
     <c:out value = "${message}"/>
   </div>
-  <div align="right">
-      <a href = "/ProfileServlet">Profile</a>
-      <a href = "/LogoutServlet">Sign Out</a>
-  </div>
 
-  <div align = "center"><h1>Welcome to THE BANK</h1></div>
-  <a href = "Login.jsp">Sign In</a><br>
-  <a href = "Registration.jsp">Registration</a><br>
+    <div align="right">
+      <a href = "/ProfileServlet"><fmt:message key = "main.Profile"/></a>
+      <a href = "/LogoutServlet"><fmt:message  key = "main.SignOut"/></a>
+    </div>
+
+  <div align = "center"><h1><fmt:message key = "main.Welcome"/></h1></div>
+  <a href = "Login.jsp"><fmt:message key = "main.SignIn"/></a><br>
+  <a href = "Registration.jsp"><fmt:message key ="main.Registration"/></a><br>
+
 
   </body>
 </html>

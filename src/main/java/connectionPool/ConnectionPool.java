@@ -13,7 +13,7 @@ public class ConnectionPool {
 
     private static ConnectionPool instance = new ConnectionPool();
     private static final String DRIVER = "org.postgresql.Driver";
-    private static final String URL = "jdbc:postgresql://localhost:5432/Payments";
+    private static final String URL = "jdbc:postgresql://localhost:5432/Payments?useUnicode=true&characterEncoding=utf8";
     private static final String USER = "Admin";
     private static final String PASSWORD = "gi2Raffew";
     private static final int POOLSIZE = 20;

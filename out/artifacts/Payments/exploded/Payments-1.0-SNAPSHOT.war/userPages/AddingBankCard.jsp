@@ -7,20 +7,25 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
     <title>Bank Card Registration Form</title>
 </head>
 <body>
+
+<fmt:setLocale value="${sessionScope.locale}"/>
+
 <div style = "color: red">
     <c:out value = "${message}"/>
 </div>
 
 <form action = "/AddBankCardServlet" method = "post">
-    number: <input oninput="lengthTrimming();" type = "number" name = "number" maxlength = "16"><br>
+    <fmt:message key = "user.number"/> <input oninput="lengthTrimming();" type = "number" name = "number" maxlength = "16"><br>
     cvv: <input  oninput="lengthTrimming();" type = "number" name = "cvv" maxlength = "3"><br>
-    exp: <input type = "date" name = "exp"><br>
-    <input type = "submit" value = "Add"><br>
+    <fmt:message key = "user.exp"/> <input type = "date" name = "exp"><br>
+    <fmt:message key = "user.add" var ="add"/>
+    <input type = "submit" value = "${add}"><br>
 </form>
 
 <script>

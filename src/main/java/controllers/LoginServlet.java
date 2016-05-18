@@ -45,7 +45,6 @@ public class LoginServlet extends HttpServlet {
 
                 Role role;
                 RoleDaoImpl roleDao = new RoleDaoImpl();
-
                 role = roleDao.getRoleById(client.getRoleId());
                 session.setAttribute("client", client);
                 session.setAttribute("role", role);

@@ -7,17 +7,19 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
     <title>Unblock account</title>
 </head>
 <body>
+<fmt:setLocale value="${sessionScope.locale}"/>
 
 <div style = "color: red">
     <c:out value = "${message}"/>
 </div>
 
-List of blocked accounts: <br>
+<fmt:message key = "admin.listOfBlocked"/> <br>
 <form action = "/UnblockAccountServlet" method = "post">
     <select name = "bankAccountId">
         <c:forEach var ="account" items = "${requestScope.bankAccounts}">
@@ -27,7 +29,8 @@ List of blocked accounts: <br>
         </c:forEach>
     </select>
     <br>
-    <input type ="submit" value = "unblock">
+    <fmt:message key = "admin.unblock" var = "unblock"/>
+    <input type ="submit" value = "${unblock}">
 </form>
 </body>
 </html>

@@ -7,12 +7,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
     <title>View all users</title>
 </head>
 <body>
-<h3>Users</h3>
+<fmt:setLocale value="${sessionScope.locale}"/>
+<h3><fmt:message key = "admin.users"/></h3>
 <table id = "tables">
     <tr>
         <th>id</th>

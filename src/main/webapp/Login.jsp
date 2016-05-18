@@ -7,20 +7,24 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
     <title>Login</title>
 </head>
 <body>
 
+<fmt:setLocale value="${sessionScope.locale}"/>
+
 <div style = "color: red">
     <c:out value = "${message}"/>
 </div>
 
 <form action = "/LoginServlet" method = "get">
-Login:<input type="text" name="login"><br>
-Password:<input type="password" name="password"><br>
-<input type = "submit" value = "login">
+    <fmt:message key = "log.login"/><input type="text" name="login"><br>
+    <fmt:message key = "log.password"/><input type="password" name="password"><br>
+    <fmt:message key = "log.submit" var = "sub"/>
+<input type = "submit" value = "${sub}">
 </form>
 </body>
 </html>
