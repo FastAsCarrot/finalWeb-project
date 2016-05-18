@@ -20,7 +20,7 @@
 </div>
 
 <h3>Card info</h3>
-<table>
+<table id = "tables">
     <tr>
         <th>owner</th>
         <th>number</th>

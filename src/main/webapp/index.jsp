@@ -19,11 +19,11 @@
   <div align="right">
       <a href = "/ProfileServlet">Profile</a>
       <a href = "/LogoutServlet">Sign Out</a>
-    </div>
+  </div>
 
-    <div align = "center"><h1>Welcome to THE BANK</h1></div>
-    <a href = "Login.jsp">Sign In</a><br>
-    <a href = "Registration.jsp">Registration</a><br>
+  <div align = "center"><h1>Welcome to THE BANK</h1></div>
+  <a href = "Login.jsp">Sign In</a><br>
+  <a href = "Registration.jsp">Registration</a><br>
 
   </body>
 </html>

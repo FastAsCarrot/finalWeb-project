@@ -94,4 +94,39 @@
         <url-pattern>/WithdrawMoneyServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>UnblockAccountServlet</servlet-name>
+        <servlet-class>controllers.adminControllers.UnblockAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UnblockAccountServlet</servlet-name>
+        <url-pattern>/UnblockAccountServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>InitializeBankAccountsServlet</servlet-name>
+        <servlet-class>controllers.adminControllers.InitializeBankAccountsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InitializeBankAccountsServlet</servlet-name>
+        <url-pattern>/InitializeBankAccountsServlet</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>InitializeUsersServlet</servlet-name>
+        <servlet-class>controllers.adminControllers.InitializeUsersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InitializeUsersServlet</servlet-name>
+        <url-pattern>/InitializeUsersServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>InitializeBankCardsServlet</servlet-name>
+        <servlet-class>controllers.adminControllers.InitializeBankCardsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InitializeBankCardsServlet</servlet-name>
+        <url-pattern>/InitializeBankCardsServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

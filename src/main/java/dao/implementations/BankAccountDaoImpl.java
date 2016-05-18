@@ -68,6 +68,7 @@ public class BankAccountDaoImpl implements BankAccountDao {
 
             return null;
         }
+
     }
 
     @Override
@@ -129,5 +130,23 @@ public class BankAccountDaoImpl implements BankAccountDao {
             return -1;
         }
     }
+
+    @Override
+    public boolean unblockBankAccountById(int id) {
+        String sqlQuery = "UPDATE bank_account SET blocked = false WHERE bank_account_id =  " + id;
+
+        try (final Connection connection = ConnectionPool.getConnection();
+             final Statement statement = connection.createStatement()) {
+            statement.executeUpdate(sqlQuery);
+
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+            return false;
+        }
+    }
+
 
 }

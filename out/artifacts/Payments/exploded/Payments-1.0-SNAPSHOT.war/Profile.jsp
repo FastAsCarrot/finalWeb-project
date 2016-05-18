@@ -26,9 +26,17 @@ Login: <c:out value = "${sessionScope.client.login}"/><br>
 Role: <c:out value = "${sessionScope.role.name}"/><br>
 <br>
 
-<a href = "AddingBankCard.jsp">Add a bank card</a><br>
-<a href = "/CardInformationServlet">Cards information</a><br>
-<a href = "CardOperationsServlet">Operations with card</a>
+<c:if test = "${sessionScope.role.name == 'User'}">
+    <a href = "AddingBankCard.jsp">Add a bank card</a><br>
+    <a href = "/CardInformationServlet">Cards information</a><br>
+    <a href = "CardOperationsServlet">Operations with card</a>
+</c:if>
+
+<c:if test = "${sessionScope.role.name == 'Administrator'}">
+    <a href = "/InitializeBankAccountsServlet">Unblock account</a><br>
+    <a href = "/InitializeBankCardsServlet">View all cards</a><br>
+    <a href = "/InitializeUsersServlet">View all users</a><br>
+</c:if>
 
 </body>
 </html>
