@@ -24,6 +24,11 @@ public class RegistrationServlet extends HttpServlet {
             String login = request.getParameter("login").toLowerCase();
             String password = request.getParameter("password");
 
+            if(password.length() < 4) {
+                request.setAttribute("message", "password is too short!");
+                request.getRequestDispatcher("Registration.jsp").forward(request, response);
+            }
+
             ClientDaoImpl clientDao = new ClientDaoImpl();
             if (clientDao.isLoginAlreadyExist(login)){
                 request.setAttribute("message", "Login '" + login + "' is already in use !!!");

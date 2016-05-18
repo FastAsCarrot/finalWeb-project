@@ -25,10 +25,10 @@
     </tr>
     <c:forEach var="Card" items="${requestScope.cards}">
     <tr>
-        <td><c:out value = "${Card.id}"/></td>
+        <td><c:out value="${Card.id}"/></td>
         <td><c:out value="${Card.bankAccountId}" /></td>
-        <td><c:out value="${Card.ownerId}" /></td>
-        <td><c:out value="${Card.number}" /></td>
+        <td><c:out value="${Card.ownerId}"/></td>
+        <td><c:out value="${Card.number}"/></td>
         <td><c:out value ="${Card.cvv}"/></td>
         <td><c:out value ="${Card.expires}"/></td>
         <td><c:out value ="${Card.pin}"/></td>

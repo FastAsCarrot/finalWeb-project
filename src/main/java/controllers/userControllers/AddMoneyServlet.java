@@ -1,4 +1,4 @@
-package controllers;
+package controllers.userControllers;
 
 import dao.entities.BankAccount;
 import dao.implementations.BankAccountDaoImpl;
@@ -32,11 +32,11 @@ public class AddMoneyServlet extends HttpServlet {
                 int cardId = bankCardDao.getBankCardIdByAccountId(Integer.valueOf(accountId));
                 transactionDao.makeTransaction(new Timestamp(date.getTime()), 55.0d, cardId);
                 request.setAttribute("message", "Operation has been successful!");
-                request.getRequestDispatcher("CardOperations.jsp").forward(request, response);
+                request.getRequestDispatcher("/userPages/CardOperations.jsp").forward(request, response);
             }
         } else {
             request.setAttribute("message", "Cannot perform operation: account is blocked!");
-            request.getRequestDispatcher("CardOperations.jsp").forward(request, response);
+            request.getRequestDispatcher("/userPages/CardOperations.jsp").forward(request, response);
         }
     }
 

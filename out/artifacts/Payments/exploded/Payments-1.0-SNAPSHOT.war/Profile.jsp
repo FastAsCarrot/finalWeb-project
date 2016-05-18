@@ -27,9 +27,9 @@ Role: <c:out value = "${sessionScope.role.name}"/><br>
 <br>
 
 <c:if test = "${sessionScope.role.name == 'User'}">
-    <a href = "AddingBankCard.jsp">Add a bank card</a><br>
+    <a href = "userPages/AddingBankCard.jsp">Add a bank card</a><br>
     <a href = "/CardInformationServlet">Cards information</a><br>
-    <a href = "CardOperationsServlet">Operations with card</a>
+    <a href = "/CardOperationsServlet">Operations with card</a>
 </c:if>
 
 <c:if test = "${sessionScope.role.name == 'Administrator'}">

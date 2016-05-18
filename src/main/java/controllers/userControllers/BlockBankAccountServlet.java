@@ -1,4 +1,4 @@
-package controllers;
+package controllers.userControllers;
 
 import dao.implementations.BankAccountDaoImpl;
 import dao.interfaces.BankAccountDao;
@@ -26,15 +26,15 @@ public class BlockBankAccountServlet extends HttpServlet {
         if (accountId != null) {
             if (bankAccountDao.blockBankAccountById(Integer.valueOf(accountId))) {
                 request.setAttribute("message", "Bank account has been successfully blocked!");
-                request.getRequestDispatcher("CardOperations.jsp").forward(request, response);
+                request.getRequestDispatcher("/userPages/CardOperations.jsp").forward(request, response);
             } else {
                 request.setAttribute("message", "Can't perform the operation at the moment");
-                request.getRequestDispatcher("CardOperations.jsp").forward(request, response);
+                request.getRequestDispatcher("/userPages/CardOperations.jsp").forward(request, response);
             }
 
         } else {
             request.setAttribute("message", "Can't retrieve bank account id!");
-            request.getRequestDispatcher("CardOperations.jsp").forward(request, response);
+            request.getRequestDispatcher("/userPages/CardOperations.jsp").forward(request, response);
         }
     }
 

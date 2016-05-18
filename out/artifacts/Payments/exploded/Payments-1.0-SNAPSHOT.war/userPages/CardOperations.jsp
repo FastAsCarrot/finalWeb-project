@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>Card operations</title>
-    <script type="text/javascript" src="scripts/actionChoices.js"></script>
+    <script type="text/javascript" src="../scripts/actionChoices.js"></script>
 </head>
 <body>
 

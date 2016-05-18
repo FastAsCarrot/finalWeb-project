@@ -42,7 +42,7 @@
     
     <servlet>
         <servlet-name>AddBankCardServlet</servlet-name>
-        <servlet-class>controllers.AddBankCardServlet</servlet-class>
+        <servlet-class>controllers.userControllers.AddBankCardServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddBankCardServlet</servlet-name>
@@ -51,7 +51,7 @@
 
     <servlet>
         <servlet-name>CardInformationServlet</servlet-name>
-        <servlet-class>controllers.CardInformationServlet</servlet-class>
+        <servlet-class>controllers.userControllers.CardInformationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CardInformationServlet</servlet-name>
@@ -60,7 +60,7 @@
 
     <servlet>
         <servlet-name>CardOperationsServlet</servlet-name>
-        <servlet-class>controllers.CardOperationsServlet</servlet-class>
+        <servlet-class>controllers.userControllers.CardOperationsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CardOperationsServlet</servlet-name>
@@ -69,7 +69,7 @@
 
     <servlet>
         <servlet-name>BlockBankAccountServlet</servlet-name>
-        <servlet-class>controllers.BlockBankAccountServlet</servlet-class>
+        <servlet-class>controllers.userControllers.BlockBankAccountServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BlockBankAccountServlet</servlet-name>
@@ -78,7 +78,7 @@
 
     <servlet>
         <servlet-name>AddMoneyServlet</servlet-name>
-        <servlet-class>controllers.AddMoneyServlet</servlet-class>
+        <servlet-class>controllers.userControllers.AddMoneyServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddMoneyServlet</servlet-name>
@@ -87,7 +87,7 @@
 
     <servlet>
         <servlet-name>WithdrawMoneyServlet</servlet-name>
-        <servlet-class>controllers.WithdrawMoneyServlet</servlet-class>
+        <servlet-class>controllers.userControllers.WithdrawMoneyServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>WithdrawMoneyServlet</servlet-name>
