@@ -10,6 +10,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="/style/ElementsStyle.css">
     <title>Title</title>
 </head>
 <body>

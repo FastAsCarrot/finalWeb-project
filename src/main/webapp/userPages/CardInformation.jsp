@@ -11,7 +11,8 @@
 
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="/style/CardInfo.css">
+    <link rel="stylesheet" type="text/css" href="/style/ElementsStyle.css">
+    <link rel="stylesheet" type="text/css" href="/style/TableStyle.css">
     <title>ProfileInfo</title>
 </head>
 <body>

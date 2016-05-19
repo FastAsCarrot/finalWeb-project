@@ -33,7 +33,7 @@ public class AddBankCardServlet extends HttpServlet {
 
             if (number.length() != 16 | cvv.length()!= 3) {
                 request.setAttribute("message", "Number of digits in field 'number' or 'cvv' is incorrect!");
-                request.getRequestDispatcher("AddingBankCard.jsp").forward(request, response);
+                request.getRequestDispatcher("/userPages/AddingBankCard.jsp").forward(request, response);
             }
 
             String exp = request.getParameter("exp");

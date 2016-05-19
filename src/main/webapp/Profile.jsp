@@ -12,6 +12,7 @@
 
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="/style/ElementsStyle.css">
     <title>Profile</title>
 </head>
 <body>
@@ -23,11 +24,13 @@
 
 <h1><fmt:message key = "profile.profileOf"/> <c:out value = "${sessionScope.client.name}"/></h1>
 
+<div id = "profileText">
 <fmt:message key = "profile.name"/> <c:out value = "${sessionScope.client.name}"/><br>
 <fmt:message key = "profile.login"/> <c:out value = "${sessionScope.client.login}"/><br>
 <fmt:message key = "profile.role"/> <c:out value = "${sessionScope.role.name}"/><br>
 <br>
-
+</div>
+<br>
 <c:if test = "${sessionScope.role.name == 'User'}">
     <a href = "userPages/AddingBankCard.jsp"> <fmt:message key = "profile.addCard"/></a><br>
     <a href = "/CardInformationServlet"> <fmt:message key = "profile.cardInfo"/></a><br>

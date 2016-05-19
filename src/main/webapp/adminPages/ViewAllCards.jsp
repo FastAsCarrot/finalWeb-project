@@ -10,6 +10,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="/style/ElementsStyle.css">
+    <link rel="stylesheet" type="text/css" href="/style/TableStyle.css">
     <title>View All Cards</title>
 </head>
 <body>

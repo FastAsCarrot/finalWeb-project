@@ -10,6 +10,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="/style/ElementsStyle.css">
     <title>Login</title>
 </head>
 <body>
@@ -21,9 +22,11 @@
 </div>
 
 <form action = "/LoginServlet" method = "get">
-    <fmt:message key = "log.login"/><input type="text" name="login"><br>
-    <fmt:message key = "log.password"/><input type="password" name="password"><br>
-    <fmt:message key = "log.submit" var = "sub"/>
+    <fmt:message key = "log.login"/>
+    <input type="text" name="login"><br>
+    <fmt:message key = "log.password"/>
+    <input type="password" name="password"><br>
+    <fmt:message key = "log.submit" var = "sub"/><br>
 <input type = "submit" value = "${sub}">
 </form>
 </body>

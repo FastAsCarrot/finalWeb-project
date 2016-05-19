@@ -10,28 +10,32 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="/style/ElementsStyle.css">
+    <link rel="stylesheet" type="text/css" href="/style/TableStyle.css">
     <title>View all users</title>
 </head>
 <body>
 <fmt:setLocale value="${sessionScope.locale}"/>
 <h3><fmt:message key = "admin.users"/></h3>
-<table id = "tables">
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>login</th>
-        <th>password</th>
-        <th>roleId</th>
-    </tr>
-    <c:forEach var="Users" items="${requestScope.users}">
+<div style="overflow-y:auto;">
+    <table id = "tables">
         <tr>
-            <td><c:out value = "${Users.id}"/></td>
-            <td><c:out value="${Users.name}" /></td>
-            <td><c:out value="${Users.login}" /></td>
-            <td><c:out value="${Users.password}" /></td>
-            <td><c:out value ="${Users.roleId}"/></td>
+            <th>id</th>
+            <th>name</th>
+            <th>login</th>
+            <th>password</th>
+            <th>roleId</th>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach var="Users" items="${requestScope.users}">
+            <tr>
+                <td><c:out value = "${Users.id}"/></td>
+                <td><c:out value="${Users.name}" /></td>
+                <td><c:out value="${Users.login}" /></td>
+                <td><c:out value="${Users.password}" /></td>
+                <td><c:out value ="${Users.roleId}"/></td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>

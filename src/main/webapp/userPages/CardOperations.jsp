@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>Card operations</title>
+    <link rel="stylesheet" type="text/css" href="/style/ElementsStyle.css">
     <script type="text/javascript" src="../scripts/actionChoices.js"></script>
 </head>
 <body>
