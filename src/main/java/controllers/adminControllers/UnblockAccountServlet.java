@@ -17,7 +17,7 @@ import java.io.IOException;
 @WebServlet(name = "UnblockAccountServlet")
 public class UnblockAccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+        response.setContentType("text/html;charset=UTF-8");
 
         int bankAccountId = Integer.valueOf(request.getParameter("bankAccountId"));
         BankAccountDaoImpl bankAccountDao = new BankAccountDaoImpl();

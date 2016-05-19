@@ -22,7 +22,7 @@ public class InitializeBankAccountsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+        response.setContentType("text/htm;charset=UTF-8l");
 
         BankAccountDaoImpl bankAccountDaoImp = new BankAccountDaoImpl();
         List<BankAccount> bankAccountList;

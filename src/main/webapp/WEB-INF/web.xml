@@ -9,6 +9,21 @@
         <param-value>i18n.WebInterface</param-value>
     </context-param>
 
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>controllers.filter.EncodingFilter</filter-class>
+
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>EnglishLocaleServlet</servlet-name>
         <servlet-class>controllers.EnglishLocaleServlet</servlet-class>

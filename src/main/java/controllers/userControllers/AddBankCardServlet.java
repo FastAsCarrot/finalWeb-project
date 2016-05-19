@@ -25,7 +25,7 @@ public class AddBankCardServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try {
-            response.setContentType("text/html");
+            response.setContentType("text/html;charset=UTF-8");
             HttpSession session = request.getSession();
 
             String number = request.getParameter("number").replaceAll(" ","");

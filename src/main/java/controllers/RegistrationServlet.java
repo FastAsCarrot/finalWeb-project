@@ -17,7 +17,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+        response.setContentType("text/html;charset=UTF-8");
         try(PrintWriter out = response.getWriter()) {
 
             String name = request.getParameter("name");

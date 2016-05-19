@@ -20,10 +20,11 @@ public class LogoutServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+        response.setContentType("text/html;charset=UTF-8");
 
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession(false);
+            request.setAttribute("locale", session.getAttribute("locale"));
             session.invalidate();
             request.setAttribute("message", "You've successfully signed out!");
             request.getRequestDispatcher("index.jsp").forward(request, response);;

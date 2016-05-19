@@ -18,7 +18,7 @@ public class EnglishLocaleServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
+        response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         session.setAttribute("locale", "en_US");
         request.getRequestDispatcher("index.jsp").forward(request,response);

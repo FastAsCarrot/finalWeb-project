@@ -35,7 +35,7 @@
     <br>
 
     <fmt:message key = "user.blockAccount" var = "block"/>
-    <input type = "submit" value = "${block}" onclick = "return blockAccount()"><br
+    <input type = "submit" value = "${block}" onclick = "return blockAccount()"><br>
     <fmt:message key = "user.addMoney" var = "add"/>
     <input type = "submit" value = "${add}" onclick = "return addMoney()"><br>
     <fmt:message key = "user.withdrawMoney" var = "withdraw"/>
