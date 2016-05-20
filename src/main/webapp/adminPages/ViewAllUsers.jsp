@@ -26,13 +26,13 @@
             <th>password</th>
             <th>roleId</th>
         </tr>
-        <c:forEach var="Users" items="${requestScope.users}">
+        <c:forEach var="User" items="${requestScope.users}">
             <tr>
-                <td><c:out value = "${Users.id}"/></td>
-                <td><c:out value="${Users.name}" /></td>
-                <td><c:out value="${Users.login}" /></td>
-                <td><c:out value="${Users.password}" /></td>
-                <td><c:out value ="${Users.roleId}"/></td>
+                <td><c:out value = "${User.id}"/></td>
+                <td><c:out value="${User.name}" /></td>
+                <td><c:out value="${User.login}" /></td>
+                <td><c:out value="${User.password}" /></td>
+                <td><c:out value ="${User.roleId}"/></td>
             </tr>
         </c:forEach>
     </table>

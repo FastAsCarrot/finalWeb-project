@@ -29,7 +29,7 @@
         <th>expires</th>
         <th>pin</th>
     </tr>
-    <c:forEach var="Card" items="${requestScope.cards}">
+    <c:forEach var="Card" items="${requestScope.allCards}">
     <tr>
         <td><c:out value="${Card.id}"/></td>
         <td><c:out value="${Card.bankAccountId}" /></td>

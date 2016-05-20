@@ -17,6 +17,7 @@ public class BankCard {
     private String pin;
 
     public BankCard(int id, String number, String cvv, Date expires, int bankAccountId, String pin, int ownerId) {
+        this.id = id;
         this.bankAccountId = bankAccountId;
         this.ownerId = ownerId;
         this.number = number;

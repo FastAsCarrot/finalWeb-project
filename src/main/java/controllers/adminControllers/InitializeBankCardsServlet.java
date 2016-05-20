@@ -29,7 +29,7 @@ public class InitializeBankCardsServlet extends HttpServlet {
         List<BankCard> bankCardList;
         BankCardDaoImpl bankCardDao = new BankCardDaoImpl();
         bankCardList = bankCardDao.getAllBankCards();
-        request.setAttribute("cards", bankCardList);
+        request.setAttribute("allCards", bankCardList);
         request.getRequestDispatcher("/adminPages/ViewAllCards.jsp").forward(request, response);
     }
 }
